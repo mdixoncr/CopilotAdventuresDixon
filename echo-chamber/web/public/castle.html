@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏰 Echo Castle - Cámara de Ecos</title>
+    <link rel="stylesheet" href="css/castle.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="castle-container">
+        <!-- HEADER -->
+        <header class="castle-header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🏰</span>
+                    <h1>Echo Castle</h1>
+                </div>
+                <nav class="nav-tabs">
+                    <button class="tab-btn active" data-tab="analyzer">🔍 Analizador</button>
+                    <button class="tab-btn" data-tab="history">📚 Historial</button>
+                    <button class="tab-btn" data-tab="visualization">📊 Visualización</button>
+                    <button class="tab-btn" data-tab="analytics">📈 Analytics</button>
+                    <button class="tab-btn" data-tab="help">❓ Ayuda</button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="castle-main">
+            <!-- TAB: ANALYZER -->
+            <div id="analyzer-tab" class="tab-content active">
+                <div class="analyzer-grid">
+                    <!-- INPUT SECTION -->
+                    <section class="input-section">
+                        <h2>🔮 Ingresa tu Secuencia Mágica</h2>
+                        <div class="input-group">
+                            <textarea 
+                                id="sequence-input" 
+                                placeholder="Ej: 2, 5, 8, 11&#10;o 1, 2, 4, 8&#10;o 1, 4, 9, 16"
+                                rows="4"></textarea>
+                            <small>Ingresa números separados por comas</small>
+                        </div>
+                        <button id="analyze-btn" class="btn btn-primary">
+                            ⚡ Analizar Secuencia
+                        </button>
+                        <button id="demo-btn" class="btn btn-secondary">
+                            🎮 Modo Demostración
+                        </button>
+                    </section>
+
+                    <!-- RESULTS SECTION -->
+                    <section class="results-section">
+                        <h2>✨ Resultados del Análisis</h2>
+                        <div id="results-container" class="results-container">
+                            <p class="placeholder">Esperando análisis...</p>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- DETAILS SECTION -->
+                <section class="details-section">
+                    <h2>🧮 Detalles del Patrón</h2>
+                    <div id="pattern-details" class="pattern-details">
+                        <div class="detail-box">
+                            <label>Tipo de Patrón:</label>
+                            <span id="pattern-type" class="detail-value">-</span>
+                        </div>
+                        <div class="detail-box">
+                            <label>Confianza:</label>
+                            <span id="pattern-confidence" class="detail-value">-</span>
+                        </div>
+                        <div class="detail-box">
+                            <label>Parámetros:</label>
+                            <div id="pattern-params" class="detail-value">-</div>
+                        </div>
+                        <div class="detail-box">
+                            <label>Predicciones Adicionales:</label>
+                            <div id="additional-predictions" class="detail-value">-</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TAB: HISTORY -->
+            <div id="history-tab" class="tab-content">
+                <section class="history-section">
+                    <h2>📚 Historial de Análisis</h2>
+                    <div class="history-controls">
+                        <button id="export-history-btn" class="btn btn-small">📥 Exportar JSON</button>
+                        <button id="clear-history-btn" class="btn btn-small btn-danger">🗑️ Limpiar Historial</button>
+                    </div>
+                    <div id="history-list" class="history-list">
+                        <p class="placeholder">No hay registros aún</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TAB: VISUALIZATION -->
+            <div id="visualization-tab" class="tab-content">
+                <section class="visualization-section">
+                    <h2>📊 Visualización de Secuencias</h2>
+                    <div class="chart-container">
+                        <canvas id="sequence-chart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="pattern-comparison-chart"></canvas>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TAB: ANALYTICS -->
+            <div id="analytics-tab" class="tab-content">
+                <section class="analytics-section">
+                    <h2>📈 Análisis Avanzado</h2>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>📊 Total de Secuencias</h3>
+                            <p id="total-sequences" class="stat-value">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>🎯 Tasa de Éxito</h3>
+                            <p id="success-rate" class="stat-value">0%</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>✨ Confianza Promedio</h3>
+                            <p id="avg-confidence" class="stat-value">0%</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>🏆 Patrón más Común</h3>
+                            <p id="most-common-pattern" class="stat-value">-</p>
+                        </div>
+                    </div>
+
+                    <div class="analytics-container">
+                        <h3>Distribución de Patrones</h3>
+                        <div class="chart-container">
+                            <canvas id="distribution-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="analytics-container">
+                        <h3>Tendencias Recientes (últimas 10 secuencias)</h3>
+                        <div id="trends-info" class="trends-info">
+                            <p class="placeholder">No hay datos suficientes</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TAB: HELP -->
+            <div id="help-tab" class="tab-content">
+                <section class="help-section">
+                    <h2>❓ Guía de Ayuda</h2>
+                    
+                    <div class="help-content">
+                        <div class="help-card">
+                            <h3>🔢 Progresión Aritmética (AP)</h3>
+                            <p><strong>Fórmula:</strong> a_n = a_1 + (n-1)d</p>
+                            <p><strong>Ejemplo:</strong> 2, 5, 8, 11 (diferencia común = 3)</p>
+                            <p><strong>Caso de uso:</strong> Secuencias con diferencia constante entre términos</p>
+                        </div>
+
+                        <div class="help-card">
+                            <h3>📈 Progresión Geométrica (GP)</h3>
+                            <p><strong>Fórmula:</strong> a_n = a_1 × r^(n-1)</p>
+                            <p><strong>Ejemplo:</strong> 2, 6, 18, 54 (razón común = 3)</p>
+                            <p><strong>Caso de uso:</strong> Secuencias con razón constante entre términos</p>
+                        </div>
+
+                        <div class="help-card">
+                            <h3>🔹 Secuencias Polinómicas</h3>
+                            <p><strong>Cuadrática (grado 2):</strong> 1, 4, 9, 16 (cuadrados perfectos)</p>
+                            <p><strong>Cúbica (grado 3):</strong> 1, 8, 27, 64 (cubos perfectos)</p>
+                            <p><strong>Caso de uso:</strong> Secuencias que siguen polinomios de orden superior</p>
+                        </div>
+
+                        <div class="help-card">
+                            <h3>💡 Consejos de Uso</h3>
+                            <ul>
+                                <li>Ingresa al menos 2 elementos para análisis básicos</li>
+                                <li>Para patrones polinómicos, proporciona al menos n+1 elementos (donde n es el grado)</li>
+                                <li>Los números pueden ser enteros o decimales</li>
+                                <li>La confianza mide qué tan seguro es el análisis (0-1)</li>
+                                <li>Usa el modo demostración para ver ejemplos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="castle-footer">
+            <p>🏰 Echo Castle v3.0 - Análisis Avanzado de Secuencias Numéricas</p>
+            <p>Construido con ❤️ por el equipo de Copilot Adventures</p>
+        </footer>
+    </div>
+
+    <!-- MODALS -->
+    <div id="modal-backdrop" class="modal-backdrop"></div>
+    <div id="notification" class="notification"></div>
+
+    <script src="js/castle.js"></script>
+</body>
+</html>

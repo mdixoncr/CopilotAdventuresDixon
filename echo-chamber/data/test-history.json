@@ -1,0 +1,59 @@
+{
+  "records": [
+    {
+      "id": "seq-1769638257972-t7k2d5032",
+      "timestamp": "2026-01-28T22:10:57.972Z",
+      "sequence": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "pattern": "Arithmetic Progression",
+      "predictions": [],
+      "confidence": 1,
+      "status": "completed",
+      "metadata": {}
+    },
+    {
+      "id": "seq-1769638257974-xo14xl37y",
+      "timestamp": "2026-01-28T22:10:57.974Z",
+      "sequence": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "pattern": "Geometric Progression",
+      "predictions": [],
+      "confidence": 1,
+      "status": "completed",
+      "metadata": {}
+    },
+    {
+      "id": "seq-1769638257974-x2o7ed15p",
+      "timestamp": "2026-01-28T22:10:57.974Z",
+      "sequence": [
+        1,
+        4,
+        9,
+        16
+      ],
+      "pattern": "Polynomial (Degree 2)",
+      "predictions": [],
+      "confidence": 1,
+      "status": "completed",
+      "metadata": {}
+    }
+  ],
+  "statistics": {
+    "totalSequences": 3,
+    "patternDistribution": {
+      "Arithmetic Progression": 1,
+      "Geometric Progression": 1,
+      "Polynomial (Degree 2)": 1
+    },
+    "averageConfidence": 1,
+    "accuracyMetrics": {}
+  }
+}

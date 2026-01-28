@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏰 Cámara de Ecos - Predictor de Secuencias</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🏰 Cámara de Ecos</h1>
+                <p class="subtitle">Predictor Mágico de Secuencias Numéricas</p>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="main">
+            <!-- Sección de Historia -->
+            <section class="story-section">
+                <div class="story-box">
+                    <h2>📖 La Historia</h2>
+                    <p>
+                        Profundamente dentro de la antigua biblioteca de Numeria se encuentra la 
+                        <strong>Cámara de Ecos</strong> mística, una sala donde números mágicos danzan 
+                        en patrones perfectos. Cada número se repite de acuerdo con una ley antigua:
+                    </p>
+                    <p class="highlight-text">
+                        <em>"Cada eco difiere del anterior por la misma cantidad mística."</em>
+                    </p>
+                    <p>
+                        Como el aprendiz más nuevo de la Cámara, ¡debes dominar el arte de la predicción 
+                        y descubrir cuál será el siguiente eco!
+                    </p>
+                </div>
+            </section>
+
+            <!-- Panel Principal -->
+            <section class="main-panel">
+                <!-- Entrada de Secuencia -->
+                <div class="input-section">
+                    <h2>✨ Ingresa una Secuencia</h2>
+                    <div class="input-group">
+                        <label for="sequenceInput">Números separados por comas:</label>
+                        <input 
+                            type="text" 
+                            id="sequenceInput" 
+                            placeholder="Ejemplo: 3, 6, 9, 12"
+                            class="sequence-input"
+                        >
+                        <div class="input-help">
+                            💡 Prueba con: 3,6,9,12 o 2,4,6,8 o 10,5,0,-5
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button id="predictBtn" class="btn btn-primary">
+                            🔮 Predecir
+                        </button>
+                        <button id="demoBtn" class="btn btn-secondary">
+                            🎬 Demostración
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Resultado de Predicción -->
+                <div id="resultSection" class="result-section hidden">
+                    <div id="resultContent"></div>
+                </div>
+
+                <!-- Demostración -->
+                <div id="demoSection" class="demo-section hidden">
+                    <h2>🎬 Resultados de Demostración</h2>
+                    <div id="demoResults" class="demo-results"></div>
+                    <button id="closeDemoBtn" class="btn btn-secondary">Cerrar Demostración</button>
+                </div>
+            </section>
+
+            <!-- Panel Lateral - Memoria y Estadísticas -->
+            <aside class="sidebar">
+                <!-- Estadísticas -->
+                <section class="memory-section">
+                    <h3>📊 Estadísticas</h3>
+                    <div class="stats-box">
+                        <div class="stat-item">
+                            <span class="stat-label">Total de Ecos:</span>
+                            <span id="totalMemories" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Diferencia Promedio:</span>
+                            <span id="avgDifference" class="stat-value">-</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Archivo de Memoria -->
+                <section class="memory-section">
+                    <h3>📚 Archivo de Memoria</h3>
+                    <div id="memoriesList" class="memories-list">
+                        <p class="empty-message">No hay memorias registradas aún.</p>
+                    </div>
+                </section>
+
+                <!-- Opciones -->
+                <section class="options-section">
+                    <button id="refreshBtn" class="btn btn-small">
+                        🔄 Actualizar Memoria
+                    </button>
+                    <button id="clearBtn" class="btn btn-danger">
+                        🗑️ Limpiar Memorias
+                    </button>
+                </section>
+            </aside>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🏰 Cámara de Ecos v1.0 | Interfaz Web para Predicción de Secuencias</p>
+            <p>Parte del Proyecto CopilotAdventures</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>

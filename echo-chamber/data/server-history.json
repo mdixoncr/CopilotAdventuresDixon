@@ -1,0 +1,54 @@
+{
+  "records": [
+    {
+      "id": "seq-1769638970995-rn0ds3yob",
+      "timestamp": "2026-01-28T22:22:50.995Z",
+      "sequence": [
+        12,
+        24,
+        36
+      ],
+      "pattern": "Arithmetic Progression",
+      "predictions": [
+        48,
+        60,
+        72,
+        84,
+        96
+      ],
+      "confidence": 1,
+      "status": "completed",
+      "metadata": {}
+    },
+    {
+      "id": "seq-1769638981943-b2n5h153e",
+      "timestamp": "2026-01-28T22:23:01.943Z",
+      "sequence": [
+        12,
+        24,
+        36,
+        42
+      ],
+      "pattern": "Polynomial (Degree 3)",
+      "predictions": [
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "confidence": 1,
+      "status": "completed",
+      "metadata": {}
+    }
+  ],
+  "statistics": {
+    "totalSequences": 2,
+    "patternDistribution": {
+      "Arithmetic Progression": 1,
+      "Polynomial (Degree 3)": 1
+    },
+    "averageConfidence": 1,
+    "accuracyMetrics": {}
+  }
+}
